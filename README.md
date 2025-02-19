@@ -14,15 +14,20 @@ A **scalable and modular** FastAPI boilerplate with **JWT authentication**, **us
 
 ## 📂 Project Structure
 
-**app/core/**               # Configuration & security utilities<br>
-**app/db/**                 # Database session & the database itself<br>
-**app/models/**             # SQLModel database models<br>
-**app/schemas/**            # Pydantic schemas for data validation<br>
-**app/api/**                # API routes (auth, users, etc.)<br>
-**app/api/v1/**             # API version 1<br>
-**app/api/v1/endpoints/**   # Your endpoints<br>
-**app/utils/**             # Helper functions (JWT, etc.)<br>
-**app/main.py**             # FastAPI application entry point<br>
+```
+project/
+│-- app/
+│   │-- core/               # Configuration & security utilities
+│   │-- db/                 # Database session & the database itself
+│   │-- models/             # SQLModel database models
+│   │-- schemas/            # Pydantic schemas for data validation
+│   │-- api/                # API routes (auth, users, etc.)
+│   │   │-- v1/             # API version 1
+│   │       │-- endpoints/  # Your endpoints
+│   │-- utils/              # Helper functions (JWT, etc.)
+│   │-- main.py             # FastAPI application entry point
+│__ requirements.txt        # Dependencies
+```
 
 ## 🚀 Quick Start
 
