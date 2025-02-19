@@ -5,7 +5,6 @@ A **scalable and modular** FastAPI boilerplate with **JWT authentication**, **us
 ## 🔥 Features
 - ✅ **FastAPI + SQLModel** for modern, async-ready backend development
 - 🔐 **JWT-based authentication** (register, login, token validation)
-- 👥 **User management** (CRUD operations)
 - 🗄️ **Database integration** with SQLModel & SQLite (easily switch to PostgreSQL/MySQL)
 - 🔒 **Secure password hashing** with Passlib (bcrypt)
 - ⚡ **Event-based startup/shutdown lifecycle** with FastAPI `lifespan`
