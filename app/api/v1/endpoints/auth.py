@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 from app.schemas.user import UserCreate, UserRead
-from app.schemas.auth import Token
+from app.schemas.auth import Token, AuthData
 from app.models.user import User
 from app.db.session import get_session
 from app.core.security import get_password_hash, verify_password
@@ -25,10 +25,10 @@ def register(user: UserCreate, session: Session = Depends(get_session)):
     return db_user
 
 @router.post("/login", response_model=Token)
-def login(username: str, password: str, session: Session = Depends(get_session)):
-    statement = select(User).where(User.username == username)
+def login(form:AuthData, session: Session = Depends(get_session)):
+    statement = select(User).where(User.username == form.username)
     db_user = session.exec(statement).first()
-    if not db_user or not verify_password(password, db_user.hashed_password):
+    if not db_user or not verify_password(form.password, db_user.hashed_password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Nom d'utilisateur ou mot de passe incorrect",

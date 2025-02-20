@@ -20,11 +20,10 @@ def read_users_me(token: str = Depends(oauth2_scheme), session: Session = Depend
             headers={"WWW-Authenticate": "Bearer"},
         )
     username: str = payload.get("sub")
-    if username is None:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token invalide")
-    
+
+    # à partir d'ici, la personne est forcément authentifiée
     statement = select(User).where(User.username == username)
     user = session.exec(statement).first()
     if user is None:
-        raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+        raise HTTPException(status_code=404, detail="L'utilisateur a été supprimé, token invalide")
     return user
