@@ -43,13 +43,16 @@ project/
    pip install -r requirements.txt
 ```
 
-### III°) Run the server
+### III°) Apply Migrations to the Database
+
+To apply migrations and update the database schema, run:
+
+```bash
+   alembic upgrade head
+```
+
+### IV°) Run the server
 
 ```bash
    uvicorn app.main:app --reload
 ```
-
-## 🎯 Future Enhancements
-
-✅ Role-based access control (RBAC)
-✅ Refresh tokens support

@@ -5,3 +5,4 @@ passlib[bcrypt]
 pyjwt
 python-dotenv
 pydantic[email]
+alembic
