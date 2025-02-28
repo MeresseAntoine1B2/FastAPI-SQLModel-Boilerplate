@@ -5,7 +5,7 @@ from app.schemas.auth import Token, AuthData
 from app.models.user import User
 from app.db.session import get_session
 from app.core.security import get_password_hash, verify_password
-from app.utils.jwt_handler import create_access_token
+from app.core.jwt_handler import create_access_token
 from pydantic import BaseModel
 
 router = APIRouter()
